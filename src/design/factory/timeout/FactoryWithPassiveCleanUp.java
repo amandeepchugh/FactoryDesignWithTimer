@@ -10,11 +10,11 @@ import design.factory.testmaterial.A1;
 import design.factory.testmaterial.B;
 import design.factory.testmaterial.B1;
 
-public class Factory {
+public class FactoryWithPassiveCleanUp {
 
 	List<Entry<Object, Long>> register =  new ArrayList<>();
 	
-	public Factory() {
+	public FactoryWithPassiveCleanUp() {
 		Entry<Object, Long> entryA1 = new AbstractMap.SimpleEntry<>(new A1(), Long.MIN_VALUE);
 		register.add(entryA1);
 		Entry<Object, Long> entryB1 = new AbstractMap.SimpleEntry<>(new B1(), Long.MIN_VALUE);
@@ -59,7 +59,7 @@ public class Factory {
 		throw new UnsupportedOperationException("The assumption that inputs are sanitized is incorrect");
 	}
 	public static void main(String[] args) {
-		Factory factory = new Factory();
+		FactoryWithPassiveCleanUp factory = new FactoryWithPassiveCleanUp();
 		A a = (A) factory.getObject("design.factory.testmaterial.A", 100);
 		a.doWork();
 		a.doWork(); //exception expected

@@ -6,8 +6,8 @@ public class A1 implements A {
 	public void doWork() {
 		try {
 			Thread.sleep(100);
+			System.out.println("work done");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
